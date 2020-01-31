@@ -716,7 +716,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b024014939015034689794b63b46bf18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTag: Wood
+  spawnerGO: {fileID: 1504107034}
+--- !u!1 &1504107034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4346829521611865246, guid: cba462837ed7a5b4f923073e4f827d6d,
+    type: 3}
+  m_PrefabInstance: {fileID: 4346829520146130564}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4346829520146130564
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -834,6 +840,16 @@ PrefabInstance:
         type: 3}
       propertyPath: lerpSpeed
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829927738842569778, guid: cba462837ed7a5b4f923073e4f827d6d,
+        type: 3}
+      propertyPath: hitPoints
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829927738842569778, guid: cba462837ed7a5b4f923073e4f827d6d,
+        type: 3}
+      propertyPath: cooldown
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cba462837ed7a5b4f923073e4f827d6d, type: 3}
