@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     public bool joystick;
     public float speed;
     public Transform _characterParent;
-    public Transform _character;
     public float rotationLerpSpeed;
 
     private Rigidbody playerRB;
@@ -19,21 +18,12 @@ public class PlayerMovement : MonoBehaviour
     {
         playerRB = GetComponent<Rigidbody>();
     }
-    // private void Update()
-    // {
-    //     RaycastHit hitInfo = new RaycastHit();
-    //     Physics.Raycast(transform.position, Vector3.down, out hitInfo, 10);
-    //     if (hitInfo.collider != null)
-    //     {
-    //     //    Quaternion lookAt = Quaternion.LookRotation((hitInfo.normal).normalized, axis);
-           
-    //     //    _character.localRotation = Quaternion.Euler(lookAt.eulerAngles.x - 90, lookAt.eulerAngles.y, lookAt.eulerAngles.z);
-    //     Debug.Log(hitInfo.collider.gameObject.name);
-    //     Debug.Log(hitInfo.normal);
-    //         _character.up = Vector3.Lerp(_character.up, hitInfo.normal, Time.deltaTime * 8f);
+    private RaycastHit _hitInfo;
+    private void LateUpdate()
+    {
+        Physics.Raycast(transform.position, Vector3.down, out _hitInfo, 10);
 
-    //     }
-    // }
+    }
     private void FixedUpdate()
     {
         float horizontal = joystick ? Input.GetAxis("Horizontal1") : Input.GetAxisRaw("Horizontal");
@@ -61,8 +51,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void LookAt()
     {
-        lookRotation = Quaternion.LookRotation(_inputDir, Vector3.up);
-        _characterParent.transform.rotation = Quaternion.Slerp(_characterParent.transform.rotation, lookRotation, rotationLerpSpeed * Time.fixedDeltaTime);
+        Quaternion lastRotation = Quaternion.LookRotation(_inputDir, Vector3.up);
+        if (_hitInfo.collider != null)
+        {
+            lastRotation *= Quaternion.FromToRotation(Vector3.up, _hitInfo.normal);
+            lastRotation = Quaternion.Euler(lastRotation.eulerAngles.x * -1, lastRotation.eulerAngles.y, lastRotation.eulerAngles.z);
+        }
+        _characterParent.transform.rotation = Quaternion.Slerp(_characterParent.transform.rotation, lastRotation, rotationLerpSpeed * Time.fixedDeltaTime);
     }
 
 }
