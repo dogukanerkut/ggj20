@@ -98,7 +98,9 @@ MonoBehaviour:
   speed: 400
   _characterParent: {fileID: 5821488552712694560}
   rotationLerpSpeed: 5
-  axis: {x: 0, y: 0, z: 0}
+  _standingStillMaterial: {fileID: 13400000, guid: a7043af90df7146e681deb8f7f5fe039,
+    type: 2}
+  _movingMaterial: {fileID: 13400000, guid: 0a16f3c2ac9fd524299b3e992090c69f, type: 2}
 --- !u!54 &1229269170
 Rigidbody:
   m_ObjectHideFlags: 0

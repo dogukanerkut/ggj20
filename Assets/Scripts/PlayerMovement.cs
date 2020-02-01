@@ -13,9 +13,12 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody playerRB;
     private Quaternion lookRotation;
     private Vector3 _inputDir;
-    [SerializeField] private Vector3 axis;
-    private void Start()
+    [SerializeField] private PhysicMaterial _standingStillMaterial;
+    [SerializeField] private PhysicMaterial _movingMaterial;
+    private Collider _collider;
+    private void Awake()
     {
+        _collider = GetComponent<Collider>();
         playerRB = GetComponent<Rigidbody>();
     }
     private RaycastHit _hitInfo;
@@ -31,11 +34,13 @@ public class PlayerMovement : MonoBehaviour
         _inputDir = new Vector3(horizontal, 0, vertical).normalized;
         if (!IsReceivingInput())
         {
+            _collider.material = _standingStillMaterial;
             // playerRB.isKinematic = true;
             // playerRB.MovePosition(transform.position + (Vector3.down * Time.fixedDeltaTime));
             // playerRB.velocity = new Vector3(0, Physics.gravity.y, 0);
             return;
         }
+        _collider.material = _movingMaterial;
         playerRB.isKinematic = false;
         MovementInput();
         LookAt();
