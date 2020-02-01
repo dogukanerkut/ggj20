@@ -1,16 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Cinemachine;
 public class WallBreakHandler : MonoBehaviour
 {
     [SerializeField] private List<Breakable> _breakStages = new List<Breakable>();
     private int _currentBreakIndex;
     public float CurrentBreakPercentage { get; private set; }
+    private CinemachineImpulseSource _impulse;
     private void Awake()
     {
         _currentBreakIndex = 0;
         EnableSubObject(_breakStages[_currentBreakIndex]);
+        _impulse = GetComponent<CinemachineImpulseSource>();
     }
     public void ReceiveHit()
     {
@@ -62,6 +64,16 @@ public class WallBreakHandler : MonoBehaviour
                 }
             }
         });
+    }
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (_impulse != null)
+            {
+            _impulse.GenerateImpulseAt(transform.position, new Vector3(5,5,5));
+                
+            }
+        }
     }
 
 }
