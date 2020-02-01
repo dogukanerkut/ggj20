@@ -12,12 +12,15 @@ public class Player : MonoBehaviour
     public float pickupRange;
     public float freeThrowForward;
     public float freeThrowUpward;
+    public float attackCooldown = .5f;
 
     private Item item;
     private bool holdingItem;
+    float timer = 0;
 
     private void Update()
     {
+        timer -= Time.deltaTime;
         bool interact = movement.joystick ? Input.GetKeyDown(KeyCode.JoystickButton1) :
             Input.GetKeyDown(KeyCode.E);
         if (interact)
@@ -31,12 +34,15 @@ public class Player : MonoBehaviour
                 Pickup();
             }
         }
+        
         bool attack = movement.joystick ? Input.GetKeyDown(KeyCode.JoystickButton0) :
             Input.GetKeyDown(KeyCode.Q);
-        if (attack)
+        if(attack && timer < 0 && !holdingItem)
         {
+            timer = attackCooldown;
             Attack();
         }
+        
     }
 
     public void Attack()
