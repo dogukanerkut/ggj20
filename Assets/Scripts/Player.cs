@@ -18,8 +18,8 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        bool interact = movement.joystick ? Input.GetKeyDown(KeyCode.JoystickButton1) :
-            Input.GetKeyDown(KeyCode.E);
+        bool interact = movement.joystick ? Input.GetKeyDown(KeyCode.Joystick1Button1) :
+            movement.joystick2 ? Input.GetKeyDown(KeyCode.Joystick2Button1) : Input.GetKeyDown(KeyCode.E);
         if (interact)
         {
             if (holdingItem)
@@ -31,8 +31,8 @@ public class Player : MonoBehaviour
                 Pickup();
             }
         }
-        bool attack = movement.joystick ? Input.GetKeyDown(KeyCode.JoystickButton0) :
-            Input.GetKeyDown(KeyCode.Q);
+        bool attack = movement.joystick ? Input.GetKeyDown(KeyCode.Joystick1Button0) :
+            movement.joystick2 ? Input.GetKeyDown(KeyCode.Joystick2Button0) : Input.GetKeyDown(KeyCode.Q);
         if (attack)
         {
             Attack();

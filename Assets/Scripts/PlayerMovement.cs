@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public bool joystick;
+    public bool joystick2;
     public float speed;
     public Transform _characterParent;
     public float rotationLerpSpeed;
@@ -31,8 +32,10 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        float horizontal = joystick ? Input.GetAxis("Horizontal1") : Input.GetAxisRaw("Horizontal");
-        float vertical = joystick ? Input.GetAxis("Vertical1") : Input.GetAxisRaw("Vertical");
+        float horizontal = joystick ? Input.GetAxis("Horizontal1") :
+            joystick2 ? Input.GetAxis("Horizontal2") : Input.GetAxisRaw("Horizontal");
+        float vertical = joystick ? Input.GetAxis("Vertical1") : 
+            joystick2 ? Input.GetAxis("Vertical2") : Input.GetAxisRaw("Vertical");
         _inputDir = new Vector3(horizontal, 0, vertical).normalized;
         if (!IsReceivingInput())
         {
