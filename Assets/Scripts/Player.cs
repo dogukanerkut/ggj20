@@ -77,7 +77,6 @@ public class Player : MonoBehaviour
         {
             item.Throw(characterParent.transform.forward * freeThrowForward +
                            characterParent.transform.up * freeThrowUpward);
-
         }
 
         holdingItem = false;
