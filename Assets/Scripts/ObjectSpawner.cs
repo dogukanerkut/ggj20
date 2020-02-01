@@ -12,6 +12,7 @@ public class ObjectSpawner : MonoBehaviour
 	public float cooldown;
 	public bool randomRot = false;
 	public int spawnCount = 1;
+	public ParticleSystem spawnVFX;
 
 	private Rigidbody itemRB;
 	private float interactTime;
@@ -39,6 +40,7 @@ public class ObjectSpawner : MonoBehaviour
 			itemRB.AddForce(transform.forward * forwardForce + transform.up * upwardsForce +
 				transform.right * sidewaysForce);
 		}
+		spawnVFX.Play();
 	}
 
 	public void Hit()
