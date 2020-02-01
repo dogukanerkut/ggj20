@@ -78,14 +78,15 @@ public class Player : MonoBehaviour
     {
         Collider[] hits = Physics.OverlapSphere(transform.position + characterParent.forward, pickupRange,
             LayerMask.GetMask("Item"));
-        hits.OrderBy(x => Vector3.Distance(transform.position, x.transform.position));
+       IOrderedEnumerable<Collider> orderedHits =  hits.OrderBy(x => Vector3.Distance(transform.position, x.transform.position));
         if (hits.Count() > 0)
         {
-            Item item = hits[0].GetComponent<Item>();
+            Item item = orderedHits.ElementAtOrDefault(0).GetComponent<Item>();
             this.item = item;
             item.Pickup(pickupPoint);
             holdingItem = true;
             animator.SetBool("Pickup", true);
+            item.transform.SetParent(pickupPoint);
         }
     }
 

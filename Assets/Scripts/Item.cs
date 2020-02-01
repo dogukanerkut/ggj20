@@ -21,6 +21,8 @@ public class Item : MonoBehaviour
     public void Pickup(Transform target)
     {
         this.target = target;
+        col.enabled = false;
+        rb.isKinematic = true;
     }
 
     public void Throw(Container container)
@@ -29,6 +31,8 @@ public class Item : MonoBehaviour
         inHand = false;
         this.container = container;
         destroy = true;
+        rb.isKinematic = false;
+
     }
 
     public void Throw(Vector3 force)
@@ -38,7 +42,10 @@ public class Item : MonoBehaviour
         rb.freezeRotation = false;
         transform.SetParent(null);
         rb.velocity = Vector3.zero;
-        //rb.AddForce(force * 10f);
+        col.enabled = true;
+        rb.isKinematic = false;
+        rb.AddForce(force * 100);
+
     }
 
     private void Update()
@@ -51,7 +58,8 @@ public class Item : MonoBehaviour
         if (target != null)
         {
             transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime * 5f);
-            if (Vector3.Distance(transform.position, target.position) < 1f)
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.identity, Time.deltaTime * 50);
+            if (Vector3.Distance(transform.position, target.position) < 0.2f)
             {
                 if (destroy)
                 {
@@ -62,7 +70,6 @@ public class Item : MonoBehaviour
                 {
                     inHand = true;
                     rb.freezeRotation = true;
-                    col.enabled = false;
                 }
             }
         }

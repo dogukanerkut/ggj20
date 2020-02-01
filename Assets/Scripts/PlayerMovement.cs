@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _inputDir;
     [SerializeField] private PhysicMaterial _standingStillMaterial;
     [SerializeField] private PhysicMaterial _movingMaterial;
+    [SerializeField] private Animator _animator;
+    [SerializeField] private int param_Walking = Animator.StringToHash("Walking");
     private Collider _collider;
     private void Awake()
     {
@@ -35,10 +37,16 @@ public class PlayerMovement : MonoBehaviour
         if (!IsReceivingInput())
         {
             _collider.material = _standingStillMaterial;
+            _animator.SetBool(param_Walking, false);
             // playerRB.isKinematic = true;
             // playerRB.MovePosition(transform.position + (Vector3.down * Time.fixedDeltaTime));
             // playerRB.velocity = new Vector3(0, Physics.gravity.y, 0);
             return;
+        }
+        if (!_animator.GetBool(param_Walking))
+        {
+            _animator.SetBool(param_Walking, true);
+
         }
         _collider.material = _movingMaterial;
         playerRB.isKinematic = false;
