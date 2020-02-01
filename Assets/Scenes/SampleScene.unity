@@ -473,6 +473,12 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!4 &241938581 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5821488552712694560, guid: 3baa12402ce2f85489b260502b7b4568,
+    type: 3}
+  m_PrefabInstance: {fileID: 1545321896}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &288718598
 GameObject:
   m_ObjectHideFlags: 0
@@ -20326,12 +20332,6 @@ MonoBehaviour:
   _maxFOV: 30
   _maxDistance: 100
   _fovSpeed: 2
---- !u!4 &1097785184 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8033041387562884468, guid: 3baa12402ce2f85489b260502b7b4568,
-    type: 3}
-  m_PrefabInstance: {fileID: 1545321896}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1105858220
 GameObject:
   m_ObjectHideFlags: 0
@@ -35076,43 +35076,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1229269171, guid: 3baa12402ce2f85489b260502b7b4568, type: 3}
-      propertyPath: character
+      propertyPath: _characterParent
       value: 
-      objectReference: {fileID: 1097785184}
-    - target: {fileID: 1229269171, guid: 3baa12402ce2f85489b260502b7b4568, type: 3}
-      propertyPath: rotationLerpSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 827837485078527624, guid: 3baa12402ce2f85489b260502b7b4568,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 827837485078527624, guid: 3baa12402ce2f85489b260502b7b4568,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 827837485078527624, guid: 3baa12402ce2f85489b260502b7b4568,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 827837485078527624, guid: 3baa12402ce2f85489b260502b7b4568,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 827837485078527624, guid: 3baa12402ce2f85489b260502b7b4568,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4406288547209628827, guid: 3baa12402ce2f85489b260502b7b4568,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 241938581}
     - target: {fileID: 8937756790132908412, guid: 3baa12402ce2f85489b260502b7b4568,
         type: 3}
       propertyPath: m_Name
