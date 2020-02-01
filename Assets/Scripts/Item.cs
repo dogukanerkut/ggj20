@@ -13,6 +13,7 @@ public class Item : MonoBehaviour
     private Container container;
     [SerializeField] private ItemType _itemType;
     public ItemType ItemType { get => _itemType; }
+    private Quaternion _targetQuaternion;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -29,7 +30,8 @@ public class Item : MonoBehaviour
     public void Throw(Container container)
     {
         transform.SetParent(container.transform);
-        target = container.transform;
+        target = container.GetTarget();
+        _targetQuaternion = target.transform.localRotation;
         inHand = false;
         this.container = container;
         destroy = true;
@@ -38,6 +40,7 @@ public class Item : MonoBehaviour
 
     public void Throw(Vector3 force)
     {
+        _targetQuaternion = Quaternion.identity;
         target = null;
         inHand = false;
         rb.freezeRotation = false;
@@ -59,7 +62,7 @@ public class Item : MonoBehaviour
         if (target != null)
         {
             transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime * 5f);
-            transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.identity, Time.deltaTime * 50);
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, _targetQuaternion, Time.deltaTime * 50);
             if (Vector3.Distance(transform.position, target.position) < 0.2f)
             {
                 if (destroy)

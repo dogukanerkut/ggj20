@@ -69,10 +69,9 @@ public class Player : MonoBehaviour
                 canThrowToContainer = true;
             }
         }
-        if (canThrowToContainer)
+        if (canThrowToContainer && container.IsCapacityAllowed())
         {
             item.Throw(container);
-
         }
         else
         {
