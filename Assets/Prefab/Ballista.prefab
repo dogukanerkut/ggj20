@@ -128,8 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrow: {fileID: 4676131507263878803}
   arrowLoadDelay: 2
-  fowardSpeed: 80
-  upSpeed: 250
+  arrowSpeed: 20
 --- !u!1 &7605705727774073934
 GameObject:
   m_ObjectHideFlags: 0
