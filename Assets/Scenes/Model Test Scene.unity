@@ -837,13 +837,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 746798613}
-  m_LocalRotation: {x: 0.012070815, y: 0.24438463, z: -0.95813096, w: -0.14871283}
+  m_LocalRotation: {x: 0.20587188, y: 0.48410526, z: -0.8410417, w: 0.12612627}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 27.692001, y: 353.788, z: 160.822}
+  m_LocalEulerAnglesHint: {x: 60.024002, y: 333.341, z: 181.471}
 --- !u!1001 &784859119
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2623,6 +2623,96 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 389915954533873556, guid: ffbb226ee6f26834f87fe9ec52b4cd08,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 389915955205446591, guid: ffbb226ee6f26834f87fe9ec52b4cd08,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 389915955394583037, guid: ffbb226ee6f26834f87fe9ec52b4cd08,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 389915955545313683, guid: ffbb226ee6f26834f87fe9ec52b4cd08,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 557201739607342654, guid: ffbb226ee6f26834f87fe9ec52b4cd08,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 557201740286317077, guid: ffbb226ee6f26834f87fe9ec52b4cd08,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 557201740356964439, guid: ffbb226ee6f26834f87fe9ec52b4cd08,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 557201740474144825, guid: ffbb226ee6f26834f87fe9ec52b4cd08,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4231644063749959146, guid: ffbb226ee6f26834f87fe9ec52b4cd08,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498767003002901419, guid: ffbb226ee6f26834f87fe9ec52b4cd08,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945408311732185377, guid: ffbb226ee6f26834f87fe9ec52b4cd08,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945408311954877283, guid: ffbb226ee6f26834f87fe9ec52b4cd08,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945408312688746831, guid: ffbb226ee6f26834f87fe9ec52b4cd08,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945408313700190024, guid: ffbb226ee6f26834f87fe9ec52b4cd08,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6220966728575842569, guid: ffbb226ee6f26834f87fe9ec52b4cd08,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6220966729862864654, guid: ffbb226ee6f26834f87fe9ec52b4cd08,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6220966730047149920, guid: ffbb226ee6f26834f87fe9ec52b4cd08,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6220966730050688290, guid: ffbb226ee6f26834f87fe9ec52b4cd08,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7536691297958453194, guid: ffbb226ee6f26834f87fe9ec52b4cd08,
         type: 3}
       propertyPath: m_Name
@@ -2682,6 +2772,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877577474451332406, guid: ffbb226ee6f26834f87fe9ec52b4cd08,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034439880542229660, guid: ffbb226ee6f26834f87fe9ec52b4cd08,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffbb226ee6f26834f87fe9ec52b4cd08, type: 3}
