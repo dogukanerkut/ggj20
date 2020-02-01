@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ObjectSpawner : MonoBehaviour, IInteractable
+public class ObjectSpawner : MonoBehaviour
 {
 
 	public GameObject itemPrefab;
@@ -33,12 +33,11 @@ public class ObjectSpawner : MonoBehaviour, IInteractable
 			transform.right * sidewaysForce);
 	}
 
-	public void Interact()
+	public void Hit()
 	{
 		if (Time.time - interactTime < cooldown) return;
 
 		currentHitPoints--;
-		Debug.Log(currentHitPoints);
 		if (currentHitPoints <= 0)
 		{
 			SpawnItem();
