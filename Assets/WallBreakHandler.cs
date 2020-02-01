@@ -16,13 +16,13 @@ public class WallBreakHandler : MonoBehaviour
     }
     public void ReceiveHit()
     {
-        if (++_currentBreakIndex > _breakStages.Count -1)
+        if (++_currentBreakIndex > _breakStages.Count - 1)
         {
             return;
         }
-        CurrentBreakPercentage = _currentBreakIndex / ((float)_breakStages.Count-1);
+        CurrentBreakPercentage = _currentBreakIndex / ((float)_breakStages.Count - 1);
         Debug.Log(CurrentBreakPercentage);
-        if (_currentBreakIndex == _breakStages.Count -1)
+        if (_currentBreakIndex == _breakStages.Count - 1)
         {
             Debug.Log("Game Over");
             EventManager.EventGameOver.Invoke();
@@ -36,12 +36,26 @@ public class WallBreakHandler : MonoBehaviour
 
     private void EnableSubObject(Breakable breakable)
     {
+        if (breakable.Object == null)
+        {
+            _breakStages.ForEach(b => 
+            {
+                if (b.Object != null)
+                {
+                    b.Object.SetActive(false);
+                }
+            });
+            return;
+        }
         _breakStages.ForEach(b =>
         {
             
             if (breakable == b)
             {
-                breakable.Object.SetActive(true);
+                if (breakable.Object != null)
+                {
+                    breakable.Object.SetActive(true);
+                }
                 if (breakable.InitialEffect != null)
                 {
                     breakable.InitialEffect.Play(true);
@@ -54,7 +68,10 @@ public class WallBreakHandler : MonoBehaviour
             }
             else
             {
-                b.Object.SetActive(false);
+                if (b.Object != null)
+                {
+                    b.Object.SetActive(false);
+                }
                 if (b.InitialEffect != null)
                 {
                     b.InitialEffect.Stop(true);
@@ -66,13 +83,14 @@ public class WallBreakHandler : MonoBehaviour
             }
         });
     }
-    private void Update() {
+    private void Update()
+    {
         if (Input.GetKeyDown(KeyCode.F))
         {
             if (_impulse != null)
             {
-            _impulse.GenerateImpulseAt(transform.position, new Vector3(5,5,5));
-                
+                _impulse.GenerateImpulseAt(transform.position, new Vector3(5, 5, 5));
+
             }
         }
     }
