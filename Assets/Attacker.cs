@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPlacer : MonoBehaviour
+public class Attacker : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private Transform _target;
@@ -24,9 +24,13 @@ public class ObjectPlacer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            AutoProjectile projectile = Instantiate(_projectilePrefab);
-            projectile.transform.position = _instantiatedBallista.transform.position;
-            projectile.Fire(_target, _initialAngle);
+            Attack();
         }
+    }
+    public void Attack()
+    {
+        AutoProjectile projectile = Instantiate(_projectilePrefab);
+        projectile.transform.position = _instantiatedBallista.transform.position;
+        projectile.Fire(_target, _initialAngle);
     }
 }
