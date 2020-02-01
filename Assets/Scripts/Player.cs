@@ -50,6 +50,13 @@ public class Player : MonoBehaviour
             {
                 hit.transform.GetComponent<ObjectSpawner>().Hit();
             }
+            if (hit.transform.tag == "Wall")
+            {
+               if (hit.transform.GetComponent<WallHandler>().AttemptToRepair())
+               {
+                   //hit is successfull, you can spawn particle fx here
+               }
+            }
         }
         animator.SetTrigger("Hit");
     }
