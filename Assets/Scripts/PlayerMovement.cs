@@ -31,7 +31,9 @@ public class PlayerMovement : MonoBehaviour
         _inputDir = new Vector3(horizontal, 0, vertical).normalized;
         if (!IsReceivingInput())
         {
-            playerRB.isKinematic = true;
+            // playerRB.isKinematic = true;
+            // playerRB.MovePosition(transform.position + (Vector3.down * Time.fixedDeltaTime));
+            // playerRB.velocity = new Vector3(0, Physics.gravity.y, 0);
             return;
         }
         playerRB.isKinematic = false;

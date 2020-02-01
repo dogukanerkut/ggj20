@@ -96,8 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joystick: 0
   speed: 400
-  _characterParent: {fileID: 0}
-  _character: {fileID: 0}
+  _characterParent: {fileID: 5821488552712694560}
   rotationLerpSpeed: 5
   axis: {x: 0, y: 0, z: 0}
 --- !u!54 &1229269170
