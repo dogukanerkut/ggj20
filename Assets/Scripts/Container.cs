@@ -19,7 +19,9 @@ public class Container : MonoBehaviour
             items[itemCount - 1].SetActive(true);
             if (transform.CompareTag("Workshop"))
             {
-                StartCoroutine(WaitAndSpawn(GetComponent<ObjectSpawner>().cooldown));
+                var spawner = GetComponent<ObjectSpawner>();
+                StartCoroutine(WaitAndSpawn(spawner.cooldown));
+                spawner.DoSpawnTween();
             }
             if (transform.CompareTag("Ballista"))
             {

@@ -53,7 +53,7 @@ public class ObjectSpawner : MonoBehaviour
     public void Hit()
     {
         if (Time.time - interactTime < cooldown) return;
-        
+
         currentHitPoints--;
         if (currentHitPoints <= 0)
         {
@@ -65,11 +65,11 @@ public class ObjectSpawner : MonoBehaviour
     }
     private void DoHitEffect()
     {
-		if (_hitFX != null)
+        if (_hitFX != null)
         {
             _hitFX.Play(true);
         }
-		
+
         if (DoTarget == null)
         {
             return;
@@ -78,6 +78,11 @@ public class ObjectSpawner : MonoBehaviour
         {
             DoTarget.DOPunchRotation(new Vector3(1, 1, 1), 0.5f);
         }
-		
+
+    }
+    public void DoSpawnTween()
+    {
+        DoTarget.localRotation = Quaternion.identity;
+        DoTarget.DOShakeRotation(cooldown, 20, 10, 90, false);
     }
 }
