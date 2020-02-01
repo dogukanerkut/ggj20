@@ -47,8 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 0}
-  forwardForce: 0
-  upwardsForce: 0
+  forwardForceInterval: {x: 70, y: 90}
+  upwardForceInterval: {x: 70, y: 90}
+  sidewaysForceInterval: {x: -10, y: 10}
+  hitPoints: 0
+  cooldown: 0
 --- !u!33 &4346829521611865241
 MeshFilter:
   m_ObjectHideFlags: 0
