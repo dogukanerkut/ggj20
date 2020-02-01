@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4109053610583351494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3561209645559101445}
+  m_Layer: 0
+  m_Name: PickupPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3561209645559101445
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4109053610583351494}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.454, z: 0.5520001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5821488552712694560}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7739310901541753870
 GameObject:
   m_ObjectHideFlags: 0
@@ -28,6 +58,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 827837485078527624}
+  - {fileID: 3561209645559101445}
   m_Father: {fileID: 8937756790132908415}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -80,8 +111,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 5622644083446125968}
   movement: {fileID: 1229269171}
-  weaponCollider: {fileID: 3397892297818447522}
-  hitClip: {fileID: 7400000, guid: 52dc3c11e0654724cb9da52a2d08dbfd, type: 2}
+  pickupPoint: {fileID: 3561209645559101445}
+  pickupLerpSpeed: 10
+  characterParent: {fileID: 5821488552712694560}
+  pickupRange: 5
+  freeThrowForward: 5
+  freeThrowUpward: 5
 --- !u!114 &1229269171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,12 +244,6 @@ Transform:
 --- !u!95 &5622644083446125968 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3607083627757848202, guid: 39bc61988bc30344184792cf79b526d3,
-    type: 3}
-  m_PrefabInstance: {fileID: 8937756790051853082}
-  m_PrefabAsset: {fileID: 0}
---- !u!135 &3397892297818447522 stripped
-SphereCollider:
-  m_CorrespondingSourceObject: {fileID: 5994000253062303160, guid: 39bc61988bc30344184792cf79b526d3,
     type: 3}
   m_PrefabInstance: {fileID: 8937756790051853082}
   m_PrefabAsset: {fileID: 0}

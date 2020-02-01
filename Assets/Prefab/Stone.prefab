@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 147232682674020195}
   - component: {fileID: 3501829367417162972}
   - component: {fileID: 5566836938699202421}
+  - component: {fileID: -6828167508018588552}
   m_Layer: 9
   m_Name: Stone
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,3 +112,15 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 0
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &-6828167508018588552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421700200861334750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e1f32b00d3a31546b33ee1031ca6645, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
