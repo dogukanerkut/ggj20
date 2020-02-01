@@ -61,7 +61,7 @@ public class Item : MonoBehaviour
         }
         if (target != null)
         {
-            transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime * 5f);
+            transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime * 10f);
             transform.localRotation = Quaternion.Slerp(transform.localRotation, _targetQuaternion, Time.deltaTime * 50);
             if (Vector3.Distance(transform.position, target.position) < 0.2f)
             {
