@@ -16,13 +16,11 @@ public class Player : MonoBehaviour
 
     private Item item;
     private bool holdingItem;
-    float timer = 0;
 
     private void Update()
     {
         bool interact = movement.joystick ? Input.GetKeyDown(KeyCode.Joystick1Button1) :
             movement.joystick2 ? Input.GetKeyDown(KeyCode.Joystick2Button1) : Input.GetKeyDown(KeyCode.E);
-        timer -= Time.deltaTime;
         if (interact)
         {
             if (holdingItem)
@@ -37,16 +35,34 @@ public class Player : MonoBehaviour
         bool attack = movement.joystick ? Input.GetKeyDown(KeyCode.Joystick1Button0) :
             movement.joystick2 ? Input.GetKeyDown(KeyCode.Joystick2Button0) : Input.GetKeyDown(KeyCode.Q);
         if (attack)
-        if(attack && timer < 0 && !holdingItem)
         {
-            timer = attackCooldown;
-            Attack();
+            StartAttackAnimation();
         }
-        
-    }
 
+    }
+    private bool _canAttack = true;
+    public void SetCanAttack(bool state)
+    {
+        Attack();
+        _canAttack = true;
+    }
+    public void StartAttackAnimation()
+    {
+        if (!_canAttack)
+        {
+            return;
+        }
+        if (holdingItem)
+        {
+            return;
+        }
+        animator.SetTrigger("Hit");
+        _canAttack = false;
+    }
     public void Attack()
     {
+
+
         RaycastHit hit;
         Physics.SphereCast(transform.position - characterParent.forward, 1f, characterParent.forward, out hit,
             2.5f, LayerMask.GetMask("Interactable"));
@@ -58,13 +74,12 @@ public class Player : MonoBehaviour
             }
             if (hit.transform.tag == "Wall")
             {
-               if (hit.transform.GetComponent<WallHandler>().AttemptToRepair())
-               {
-                   //hit is successfull, you can spawn particle fx here
-               }
+                if (hit.transform.GetComponent<WallHandler>().AttemptToRepair())
+                {
+                    //hit is successfull, you can spawn particle fx here
+                }
             }
         }
-        animator.SetTrigger("Hit");
     }
 
     public void Throw()
