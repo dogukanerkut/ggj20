@@ -11,7 +11,8 @@ public class Item : MonoBehaviour
     private Rigidbody rb;
     private Collider col;
     private Container container;
-
+    [SerializeField] private ItemType _itemType;
+    public ItemType ItemType { get => _itemType; }
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -27,6 +28,7 @@ public class Item : MonoBehaviour
 
     public void Throw(Container container)
     {
+        transform.SetParent(container.transform);
         target = container.transform;
         inHand = false;
         this.container = container;
@@ -74,4 +76,11 @@ public class Item : MonoBehaviour
         }
     }
 
+}
+public enum ItemType
+{
+    Wood,
+    Bucket,
+    Stone,
+    Arrow
 }

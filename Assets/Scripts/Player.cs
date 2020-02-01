@@ -57,18 +57,30 @@ public class Player : MonoBehaviour
     public void Throw()
     {
         RaycastHit hit;
-        Physics.SphereCast(transform.position, 2f, characterParent.forward, out hit,
+        Physics.SphereCast(transform.position, 0.5f, characterParent.forward, out hit,
             8f, LayerMask.GetMask("Container"));
+        bool canThrowToContainer = false;
+        Container container = null;
         if (hit.transform != null)
         {
-            Container container = hit.transform.GetComponent<Container>();
+            container = hit.transform.GetComponent<Container>();
+            if (container.IsContainerOf(item.ItemType))
+            {
+                canThrowToContainer = true;
+            }
+        }
+        if (canThrowToContainer)
+        {
             item.Throw(container);
+
         }
         else
         {
             item.Throw(characterParent.transform.forward * freeThrowForward +
-                characterParent.transform.up * freeThrowUpward);
+                           characterParent.transform.up * freeThrowUpward);
+
         }
+
         holdingItem = false;
         animator.SetBool("Pickup", false);
         animator.SetTrigger("Throw");
@@ -78,7 +90,7 @@ public class Player : MonoBehaviour
     {
         Collider[] hits = Physics.OverlapSphere(transform.position + characterParent.forward, pickupRange,
             LayerMask.GetMask("Item"));
-       IOrderedEnumerable<Collider> orderedHits =  hits.OrderBy(x => Vector3.Distance(transform.position, x.transform.position));
+        IOrderedEnumerable<Collider> orderedHits = hits.OrderBy(x => Vector3.Distance(transform.position, x.transform.position));
         if (hits.Count() > 0)
         {
             Item item = orderedHits.ElementAtOrDefault(0).GetComponent<Item>();

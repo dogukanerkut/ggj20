@@ -7,7 +7,7 @@ public class Container : MonoBehaviour
 
     public List<GameObject> items;
     private int itemCount;
-
+    [SerializeField] private ItemType _itemType;
     public void AddItem()
     {
         if (itemCount < 3)
@@ -24,6 +24,10 @@ public class Container : MonoBehaviour
             itemCount--;
             items[itemCount].SetActive(false);
         }
+    }
+    public bool IsContainerOf(ItemType itemType)
+    {
+        return itemType == _itemType;
     }
 
 }
