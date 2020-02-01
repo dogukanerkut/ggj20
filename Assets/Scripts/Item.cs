@@ -31,7 +31,6 @@ public class Item : MonoBehaviour
         inHand = false;
         this.container = container;
         destroy = true;
-        rb.isKinematic = false;
 
     }
 

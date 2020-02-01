@@ -10,6 +10,8 @@ public class ObjectSpawner : MonoBehaviour
 	public Vector2 sidewaysForceInterval;
 	public int hitPoints;
 	public float cooldown;
+	public bool randomRot = false;
+	public int spawnCount = 1;
 
 	private Rigidbody itemRB;
 	private float interactTime;
@@ -23,14 +25,20 @@ public class ObjectSpawner : MonoBehaviour
 
 	private void SpawnItem()
 	{
-		interactTime = Time.time;
-		GameObject itemGO = Instantiate(itemPrefab, spawnPoint.position, Quaternion.identity, transform);
-		itemRB = itemGO.GetComponent<Rigidbody>();
-		float forwardForce = Random.Range(forwardForceInterval.x, forwardForceInterval.y);
-		float upwardsForce = Random.Range(upwardForceInterval.x, upwardForceInterval.y);
-		float sidewaysForce = Random.Range(sidewaysForceInterval.x, sidewaysForceInterval.y);
-		itemRB.AddForce(transform.forward * forwardForce + transform.up * upwardsForce +
-			transform.right * sidewaysForce);
+		for(int i = 0; i < spawnCount; i++)
+		{
+			interactTime = Time.time;
+			GameObject itemGO = Instantiate(itemPrefab, spawnPoint.position, Quaternion.identity);
+			if(randomRot)
+				itemGO.transform.rotation = Random.rotation;
+			itemRB = itemGO.GetComponent<Rigidbody>();
+			float forwardForce = Random.Range(forwardForceInterval.x, forwardForceInterval.y);
+			float upwardsForce = Random.Range(upwardForceInterval.x, upwardForceInterval.y);
+			float sidewaysForce = Random.Range(sidewaysForceInterval.x, sidewaysForceInterval.y);
+			itemGO.transform.SetParent(transform);
+			itemRB.AddForce(transform.forward * forwardForce + transform.up * upwardsForce +
+				transform.right * sidewaysForce);
+		}
 	}
 
 	public void Hit()
