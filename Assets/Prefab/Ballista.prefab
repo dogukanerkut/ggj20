@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3351587929863763460}
   - component: {fileID: 6041646837638302770}
   - component: {fileID: 64374905302479051}
+  - component: {fileID: 3503331203309424682}
   m_Layer: 0
   m_Name: Ballista
   m_TagString: Untagged
@@ -80,6 +81,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &3503331203309424682
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790289351722320919}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.79160047
+  m_Height: 3.56
+  m_Direction: 1
+  m_Center: {x: 0.000000029802322, y: 0.42247847, z: 0}
 --- !u!1 &7605705727774073934
 GameObject:
   m_ObjectHideFlags: 0

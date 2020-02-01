@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 1901170860982478800}
   - component: {fileID: 7438071282859515366}
   - component: {fileID: 3748647486419099935}
+  - component: {fileID: 6323041352736296811}
+  - component: {fileID: 2102009231379613035}
   m_Layer: 0
-  m_Name: Wall Piece
+  m_Name: Wall 4_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,3 +81,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6323041352736296811
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3186588157105264067}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5697818, y: 3.0503147, z: 7.764572}
+  m_Center: {x: -0.20399688, y: 1.5251719, z: 0.0000007160531}
+--- !u!65 &2102009231379613035
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3186588157105264067}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5487346, y: 0.7595222, z: 7.764572}
+  m_Center: {x: -1.2145202, y: 3.4294467, z: 0.0000007041265}
