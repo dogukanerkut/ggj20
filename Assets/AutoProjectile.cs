@@ -24,9 +24,18 @@ public class AutoProjectile : MonoBehaviour
         Vector3 velocity = new Vector3(0, initialVelocity * Mathf.Sin(angle), initialVelocity * Mathf.Cos(angle));
 
         float angleBetweenObjects = Vector3.Angle(Vector3.forward, planarTarget - planarPostion);
-        Vector3 finalVelocity = Quaternion.AngleAxis(angleBetweenObjects, Vector3.up) * velocity;
+        float signedAngle = Vector3.SignedAngle(planarTarget - planarPostion, Vector3.forward, Vector3.up);
+        Vector3 finalVelocity = Quaternion.AngleAxis(-signedAngle, Vector3.up) * velocity;
 
         rigid.velocity = finalVelocity;
         // rigid.AddForce(finalVelocity * rigid.mass, ForceMode.Impulse);
+    }
+    private void OnCollisionEnter(Collision other) {
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            other.transform.parent.GetComponent<WallBreakHandler>().ReceiveHit();
+            GetComponent<Collider>().enabled = false;
+            Destroy(gameObject);
+        }
     }
 }
