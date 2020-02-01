@@ -14,7 +14,7 @@ public class ObjectSpawner : MonoBehaviour
 	public int spawnCount = 1;
 	public ParticleSystem spawnVFX;
 	public SpawnerEffect spawnerFX;
-
+	public ParticleSystem _hitFX;
 	private Rigidbody itemRB;
 	private float interactTime;
 	private int currentHitPoints;
@@ -52,7 +52,10 @@ public class ObjectSpawner : MonoBehaviour
 	public void Hit()
 	{
 		if (Time.time - interactTime < cooldown) return;
-
+		if (_hitFX != null)
+		{
+			_hitFX.Play(true);
+		}
 		currentHitPoints--;
 		if (currentHitPoints <= 0)
 		{
