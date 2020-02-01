@@ -6,16 +6,32 @@ public class Container : MonoBehaviour
 {
 
     public List<GameObject> items;
+    public int capacity;
     private int itemCount;
     [SerializeField] private ItemType _itemType;
     private int _currentIndex = 0;
     public void AddItem()
     {
-        if (itemCount < 3)
+        if (itemCount < capacity)
         {
             itemCount++;
             items[itemCount - 1].SetActive(true);
+            if (transform.CompareTag("Workshop"))
+            {
+                StartCoroutine(WaitAndSpawn(GetComponent<ObjectSpawner>().cooldown));
+            }
+            if (transform.CompareTag("Ballista"))
+            {
+                GetComponent<Ballista>().DelayedFire();
+            }
         }
+    }
+
+    public IEnumerator WaitAndSpawn(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        GetComponent<ObjectSpawner>().SpawnItem();
+        RemoveItem();
     }
 
     public void RemoveItem()
@@ -23,6 +39,7 @@ public class Container : MonoBehaviour
         if (itemCount > 0)
         {
             itemCount--;
+            _currentIndex--;
             items[itemCount].SetActive(false);
         }
     }
@@ -31,9 +48,9 @@ public class Container : MonoBehaviour
         return itemType == _itemType;
     }
     public bool IsCapacityAllowed()
-   {
+    {
        return _currentIndex != items.Count;
-   } 
+    } 
     public Transform GetTarget()
     {
         Transform t = items[_currentIndex].transform;

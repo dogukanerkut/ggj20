@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 6041646837638302770}
   - component: {fileID: 64374905302479051}
   - component: {fileID: 3503331203309424682}
-  m_Layer: 0
+  - component: {fileID: 8437513578271466376}
+  - component: {fileID: 2044857841416206452}
+  m_Layer: 13
   m_Name: Ballista
-  m_TagString: Untagged
+  m_TagString: Ballista
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,6 +33,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2096656889415107972}
+  - {fileID: 8556748085335639168}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -15.000001, z: 0}
@@ -95,6 +98,38 @@ CapsuleCollider:
   m_Height: 3.56
   m_Direction: 1
   m_Center: {x: 0.000000029802322, y: 0.42247847, z: 0}
+--- !u!114 &8437513578271466376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790289351722320919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 656295738d84caf45add8a23fd4be849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 4676131507263878803}
+  capacity: 1
+  _itemType: 3
+--- !u!114 &2044857841416206452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790289351722320919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0003e9ab8217fbe4ea1049699e6ace93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrow: {fileID: 4676131507263878803}
+  arrowLoadDelay: 2
+  fowardSpeed: 80
+  upSpeed: 250
 --- !u!1 &7605705727774073934
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,7 +141,7 @@ GameObject:
   - component: {fileID: 2096656889415107972}
   - component: {fileID: 169538437914785946}
   - component: {fileID: 5934690033656936333}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Ballista Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,3 +210,104 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1001 &4625197728632968318
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3351587929863763460}
+    m_Modifications:
+    - target: {fileID: -8220495510725656947, guid: 90b44cae63ea90e419e1b23d881cd86f,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8220495510725656947, guid: 90b44cae63ea90e419e1b23d881cd86f,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 59940978221720301, guid: 90b44cae63ea90e419e1b23d881cd86f,
+        type: 3}
+      propertyPath: m_Name
+      value: Ballista Arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 59940978221720301, guid: 90b44cae63ea90e419e1b23d881cd86f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 59940978221720301, guid: 90b44cae63ea90e419e1b23d881cd86f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931552144652751102, guid: 90b44cae63ea90e419e1b23d881cd86f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.007
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931552144652751102, guid: 90b44cae63ea90e419e1b23d881cd86f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.868
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931552144652751102, guid: 90b44cae63ea90e419e1b23d881cd86f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.041
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931552144652751102, guid: 90b44cae63ea90e419e1b23d881cd86f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.4231976
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931552144652751102, guid: 90b44cae63ea90e419e1b23d881cd86f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5772347
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931552144652751102, guid: 90b44cae63ea90e419e1b23d881cd86f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.42450452
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931552144652751102, guid: 90b44cae63ea90e419e1b23d881cd86f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5545266
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931552144652751102, guid: 90b44cae63ea90e419e1b23d881cd86f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931552144652751102, guid: 90b44cae63ea90e419e1b23d881cd86f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -1.1880001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931552144652751102, guid: 90b44cae63ea90e419e1b23d881cd86f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -91.409004
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931552144652751102, guid: 90b44cae63ea90e419e1b23d881cd86f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -73.653
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 90b44cae63ea90e419e1b23d881cd86f, type: 3}
+--- !u!1 &4676131507263878803 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 59940978221720301, guid: 90b44cae63ea90e419e1b23d881cd86f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4625197728632968318}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8556748085335639168 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3931552144652751102, guid: 90b44cae63ea90e419e1b23d881cd86f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4625197728632968318}
+  m_PrefabAsset: {fileID: 0}

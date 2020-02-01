@@ -11,9 +11,12 @@ GameObject:
   - component: {fileID: 3931552144652751102}
   - component: {fileID: 5464180708710607560}
   - component: {fileID: 1794721887515252273}
-  m_Layer: 0
+  - component: {fileID: -8220495510725656947}
+  - component: {fileID: 8023481191010574564}
+  - component: {fileID: -4815980028052403698}
+  m_Layer: 9
   m_Name: Ballista Arrow
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,3 +82,46 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!54 &-8220495510725656947
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59940978221720301}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 10
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &8023481191010574564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59940978221720301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e1f32b00d3a31546b33ee1031ca6645, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemType: 3
+--- !u!136 &-4815980028052403698
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59940978221720301}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.099294156
+  m_Height: 1.2332315
+  m_Direction: 1
+  m_Center: {x: -0.042881116, y: 0.055985093, z: 0.0007885285}

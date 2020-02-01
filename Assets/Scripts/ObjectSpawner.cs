@@ -23,7 +23,7 @@ public class ObjectSpawner : MonoBehaviour
 		currentHitPoints = hitPoints;
 	}
 
-	private void SpawnItem()
+	public void SpawnItem()
 	{
 		for(int i = 0; i < spawnCount; i++)
 		{
