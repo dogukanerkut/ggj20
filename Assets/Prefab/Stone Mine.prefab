@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1105353529
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1105353530}
+  m_Layer: 10
+  m_Name: stonepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1105353530
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105353529}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 5.84, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9031528765431886119}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5408038476138201908
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,9 +41,11 @@ GameObject:
   - component: {fileID: 9031528765431886119}
   - component: {fileID: 3774832605203217}
   - component: {fileID: 5994819264619411432}
-  m_Layer: 0
+  - component: {fileID: 149811880}
+  - component: {fileID: 149811881}
+  m_Layer: 10
   m_Name: Stone Mine
-  m_TagString: Untagged
+  m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,10 +57,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5408038476138201908}
-  m_LocalRotation: {x: -1.2005592e-16, y: 0.2770998, z: 1.5805812e-17, w: 0.9608412}
+  m_LocalRotation: {x: 0, y: 0.27709663, z: 0, w: 0.96084213}
   m_LocalPosition: {x: 4, y: 0.025, z: 0}
   m_LocalScale: {x: 0.38506642, y: 0.38506645, z: 0.38506642}
-  m_Children: []
+  m_Children:
+  - {fileID: 1105353530}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 32.174, z: 0}
@@ -80,3 +113,37 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &149811880
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5408038476138201908}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 4.36
+  m_Height: 12.56
+  m_Direction: 1
+  m_Center: {x: 0.0473242, y: 0.78, z: -0.09}
+--- !u!114 &149811881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5408038476138201908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a18d4082504c7044823c18a6a293b5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 421700200861334750, guid: 22e92f8d8f8a18f46b8eaf2f8cd651f8,
+    type: 3}
+  spawnPoint: {fileID: 1105353530}
+  forwardForceInterval: {x: -1, y: 1}
+  upwardForceInterval: {x: 1, y: 2}
+  sidewaysForceInterval: {x: -1, y: 1}
+  hitPoints: 5
+  cooldown: 0
