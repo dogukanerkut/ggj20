@@ -1,19 +1,30 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
 
-    public GameObject spawnerGO;
+    public Animator animator;
+    public PlayerMovement movement;
+    public Collider weaponCollider;
+    public AnimationClip hitClip;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        bool attack = movement.joystick ? Input.GetKeyDown(KeyCode.JoystickButton0) :
+            Input.GetMouseButtonDown(0);
+        if (attack)
         {
-            ObjectSpawner objSpawner = spawnerGO.GetComponent<ObjectSpawner>();
-            objSpawner.Hit();
+            weaponCollider.enabled = true;
+            animator.SetTrigger("Hit");
+            StartCoroutine(HitAnimEnd());
         }
     }
+
+    private IEnumerator HitAnimEnd()
+    {
+        yield return new WaitForSeconds(hitClip.length / animator.speed);
+        weaponCollider.enabled = false;
+    } 
 
 }

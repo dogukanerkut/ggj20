@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 
-public class ObjectSpawner : MonoBehaviour
+public class ObjectSpawner : MonoBehaviour, IInteractable
 {
 
 	public GameObject itemPrefab;
+	public Transform spawnPoint;
 	public Vector2 forwardForceInterval;
 	public Vector2 upwardForceInterval;
 	public Vector2 sidewaysForceInterval;
@@ -23,7 +24,7 @@ public class ObjectSpawner : MonoBehaviour
 	private void SpawnItem()
 	{
 		interactTime = Time.time;
-		GameObject itemGO = Instantiate(itemPrefab, transform);
+		GameObject itemGO = Instantiate(itemPrefab, spawnPoint.position, Quaternion.identity, transform);
 		itemRB = itemGO.GetComponent<Rigidbody>();
 		float forwardForce = Random.Range(forwardForceInterval.x, forwardForceInterval.y);
 		float upwardsForce = Random.Range(upwardForceInterval.x, upwardForceInterval.y);
@@ -32,11 +33,12 @@ public class ObjectSpawner : MonoBehaviour
 			transform.right * sidewaysForce);
 	}
 
-	public void Hit()
+	public void Interact()
 	{
 		if (Time.time - interactTime < cooldown) return;
 
 		currentHitPoints--;
+		Debug.Log(currentHitPoints);
 		if (currentHitPoints <= 0)
 		{
 			SpawnItem();
