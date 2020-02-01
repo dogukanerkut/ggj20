@@ -42,6 +42,7 @@ public class Ballista : MonoBehaviour
         yield return new WaitForSeconds(10f);
         Destroy(obj);
         moveArrow = false;
+        GetComponent<Container>().RemoveItem();
     }
 
 }

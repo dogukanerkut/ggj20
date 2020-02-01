@@ -10,6 +10,7 @@ public class Container : MonoBehaviour
     private int itemCount;
     [SerializeField] private ItemType _itemType;
     private int _currentIndex = 0;
+    public int ItemCount { get => itemCount;}
     public void AddItem()
     {
         if (itemCount < capacity)

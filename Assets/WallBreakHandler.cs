@@ -14,6 +14,7 @@ public class WallBreakHandler : MonoBehaviour
         EnableSubObject(_breakStages[_currentBreakIndex]);
         _impulse = GetComponent<CinemachineImpulseSource>();
     }
+    public bool IsWallSolid { get => _currentBreakIndex == 0; }
     public void ReceiveHit()
     {
         if (++_currentBreakIndex > _breakStages.Count - 1)
@@ -81,6 +82,15 @@ public class WallBreakHandler : MonoBehaviour
                 }
             }
         });
+    }
+    public void Repair()
+    {
+        if (_currentBreakIndex -1 < 0)
+        {
+            return;
+        }
+        _currentBreakIndex--;
+        EnableSubObject(_breakStages[_currentBreakIndex]);
     }
     private void Update()
     {
