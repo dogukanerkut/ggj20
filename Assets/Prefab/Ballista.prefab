@@ -129,6 +129,8 @@ MonoBehaviour:
   arrow: {fileID: 4676131507263878803}
   arrowLoadDelay: 2
   arrowSpeed: 40
+  destructionEffect: {fileID: 3839573320403301728, guid: 852d19695438c3f4caf32781c91fb5ee,
+    type: 3}
 --- !u!96 &5563642080039565645
 TrailRenderer:
   serializedVersion: 2

@@ -9,6 +9,8 @@ public class Ballista : MonoBehaviour
     public float arrowLoadDelay;
     public float arrowSpeed;
 
+    public GameObject destructionEffect;
+
     private bool moveArrow;
     private GameObject newArrow;
 
@@ -45,4 +47,11 @@ public class Ballista : MonoBehaviour
         GetComponent<Container>().RemoveItem();
     }
 
+    public void DestroyBallista()
+    {
+        if(gameObject.activeInHierarchy)
+            Instantiate(destructionEffect, transform.position, Quaternion.identity);
+        gameObject.SetActive(false);
+        
+    }
 }
