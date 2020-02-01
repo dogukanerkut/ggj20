@@ -42,8 +42,8 @@ public class Player : MonoBehaviour
     public void Attack()
     {
         RaycastHit hit;
-        Physics.Raycast(transform.position, characterParent.forward, out hit, 3f,
-            LayerMask.GetMask("Interactable"));
+        Physics.SphereCast(transform.position - characterParent.forward, 1f, characterParent.forward, out hit,
+            2.5f, LayerMask.GetMask("Interactable"));
         if (hit.transform != null)
         {
             if (hit.transform.tag == "Spawner")
