@@ -8,7 +8,6 @@ public class AutoProjectile : MonoBehaviour
     public void Fire(Transform target, float initialAngle)
     {
         var rigid = GetComponent<Rigidbody>();
-        rigid.isKinematic = false;
         Vector3 p = target.position;
 
         float gravity = Physics.gravity.magnitude;
