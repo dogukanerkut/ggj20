@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5803423389360498646}
   - component: {fileID: 3301948232129158624}
   - component: {fileID: 9146363374135828761}
+  - component: {fileID: 511767893}
   m_Layer: 0
   m_Name: Tree Stump
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.00001}
 --- !u!33 &3301948232129158624
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -58,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3908329a5b7886c4eb452fe38feff15a, type: 2}
+  - {fileID: 2100000, guid: 7c3e549e2ad789b4ab00d89699b99e3c, type: 2}
   - {fileID: 2100000, guid: cf30e7d77c7a8664faa02015d5f261d0, type: 2}
   - {fileID: 2100000, guid: 93a570cefc425ff469aed6993e8b5dbb, type: 2}
   m_StaticBatchInfo:
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &511767893
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7409194394358666693}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.75
+  m_Height: 4
+  m_Direction: 0
+  m_Center: {x: -1.88, y: 0, z: 0}
