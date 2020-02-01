@@ -38,6 +38,7 @@ public class WallBreakHandler : MonoBehaviour
     {
         _breakStages.ForEach(b =>
         {
+            
             if (breakable == b)
             {
                 breakable.Object.SetActive(true);
