@@ -151,7 +151,7 @@ PrefabInstance:
     - target: {fileID: 3971440881637265612, guid: dd9822c67e61ae84caaf627e0325b67a,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 25
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 3971440881637265612, guid: dd9822c67e61ae84caaf627e0325b67a,
         type: 3}
@@ -1688,7 +1688,7 @@ PrefabInstance:
     - target: {fileID: 3971440881637265612, guid: dd9822c67e61ae84caaf627e0325b67a,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 25
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3971440881637265612, guid: dd9822c67e61ae84caaf627e0325b67a,
         type: 3}
@@ -2463,7 +2463,7 @@ PrefabInstance:
     - target: {fileID: 3971440881637265612, guid: dd9822c67e61ae84caaf627e0325b67a,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 25
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3971440881637265612, guid: dd9822c67e61ae84caaf627e0325b67a,
         type: 3}
@@ -2776,6 +2776,16 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6276165928464392782, guid: e7c9a46458e30e548bb45916f9576716,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276165928464392782, guid: e7c9a46458e30e548bb45916f9576716,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6276165928464392783, guid: e7c9a46458e30e548bb45916f9576716,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2830,6 +2840,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.000015258789
+      objectReference: {fileID: 0}
+    - target: {fileID: 7728511257177880598, guid: e7c9a46458e30e548bb45916f9576716,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 7728511257177880599, guid: e7c9a46458e30e548bb45916f9576716,
         type: 3}

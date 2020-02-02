@@ -33,7 +33,9 @@ public class Attacker : MonoBehaviour
 
     public void Attack(bool fireArrow)
     {
-        if(!fireArrow || _targetBallista == null)
+        if(!_targetBallista)
+            fireArrow = false;
+        if(!fireArrow || !_targetBallista.gameObject.activeInHierarchy)
         {
             AutoProjectile projectile = Instantiate(_projectilePrefab);
             projectile.transform.position = _instantiatedBallista.transform.position;
