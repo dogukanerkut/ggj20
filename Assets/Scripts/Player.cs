@@ -13,15 +13,14 @@ public class Player : MonoBehaviour
     public float freeThrowForward;
     public float freeThrowUpward;
     public float attackCooldown = .5f;
+    public MeshRenderer hatMeshRenderer;
 
     private Item item;
     private bool holdingItem;
 
     private void Update()
     {
-        bool interact = movement.joystick ? Input.GetKeyDown(KeyCode.Joystick1Button1) :
-            movement.joystick2 ? Input.GetKeyDown(KeyCode.Joystick2Button1) : Input.GetKeyDown(KeyCode.E);
-        if (interact)
+        if (movement.inputHandle.GetInteractInput(movement.playerNo))
         {
             if (holdingItem)
             {
@@ -32,9 +31,7 @@ public class Player : MonoBehaviour
                 Pickup();
             }
         }
-        bool attack = movement.joystick ? Input.GetKeyDown(KeyCode.Joystick1Button0) :
-            movement.joystick2 ? Input.GetKeyDown(KeyCode.Joystick2Button0) : Input.GetKeyDown(KeyCode.Q);
-        if (attack)
+        if (movement.inputHandle.GetAttackInput(movement.playerNo))
         {
             StartAttackAnimation();
         }
