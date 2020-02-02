@@ -22,7 +22,7 @@ public class WallBreakHandler : MonoBehaviour
             return;
         }
         CurrentBreakPercentage = _currentBreakIndex / ((float)_breakStages.Count - 1);
-        Debug.Log(CurrentBreakPercentage);
+        //Debug.Log(CurrentBreakPercentage);
         if (_currentBreakIndex == _breakStages.Count - 1)
         {
             TimeControl.instance.SetTimeScale(.01f);

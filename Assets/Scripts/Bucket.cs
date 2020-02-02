@@ -12,16 +12,17 @@ public class Bucket : MonoBehaviour
         if(willExplode && !col.gameObject.CompareTag("Player"))
         {
             Instantiate(waterSplash, transform.position, Quaternion.identity);
-            Destroy(gameObject);
 
-            RaycastHit hit;
-            if(Physics.SphereCast(transform.position, 1.25f ,Vector3.forward, out hit, 0.02f))
+            Collider[] cols = Physics.OverlapSphere(transform.position, 2f);
+            foreach(Collider collider in cols)
             {
-                if(hit.transform.CompareTag("Ballista"))
+                if(collider.CompareTag("Ballista"))
                 {
-                    hit.transform.GetComponent<Ballista>().ExtnguishFire();
+                    collider.GetComponent<Ballista>().ExtnguishFire();
                 }
             }
+
+            Destroy(gameObject);
         }
     }
 }

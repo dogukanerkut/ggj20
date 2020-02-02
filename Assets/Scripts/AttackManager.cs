@@ -17,8 +17,8 @@ public class AttackManager : MonoBehaviour
         float rand = Random.value;
         bool firingArrow = rand < _data.ChanceToBurnBallista;
 
-        //if(firingArrow)
-        //    delay /= 2;
+        if(firingArrow)
+            delay /= 2;
 
         yield return new WaitForSeconds(delay);
         _attackers[Random.Range(0, _attackers.Count)].Attack(firingArrow);
