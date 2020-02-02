@@ -20,8 +20,11 @@ public class ObjectSpawner : MonoBehaviour
     private int currentHitPoints;
     public ItemType ItemType;
     public Transform DoTarget;
+	private  MeshRenderer _renderer;
+	private int _rimAmountId = Shader.PropertyToID("_delta");
     private void Start()
     {
+		_renderer = GetComponent<MeshRenderer>();
         interactTime = -cooldown;
         currentHitPoints = hitPoints;
     }
@@ -62,6 +65,12 @@ public class ObjectSpawner : MonoBehaviour
         }
 
         DoHitEffect();
+
+		if (ItemType == ItemType.Stone)
+		{
+			DOTween.Kill(_renderer.material, true);
+			_renderer.material.DOFloat(0, _rimAmountId, 0.3f).SetEase(Ease.Flash).From(1);
+		}
     }
     private void DoHitEffect()
     {
