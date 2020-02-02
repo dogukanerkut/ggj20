@@ -22,7 +22,6 @@ public class PlayerSpawner : MonoBehaviour
     {
         camPos = cam.transform.position;
         camRot = cam.transform.rotation;
-        Debug.Log(camPos);
 
         inputHandle = new InputHandle();
         foreach (Transform child in transform)
@@ -34,16 +33,29 @@ public class PlayerSpawner : MonoBehaviour
         int limit = joystickCount + 1 < 4 ? joystickCount + 1 : 4;
         for (int i = 0; i < limit; i++)
         {
-            GameObject playerGO = Instantiate(playerPrefab);
-            playerGO.transform.position = children[playerCount++].position;
-            PlayerMovement pm = playerGO.GetComponent<PlayerMovement>();
-            pm.playerNo = playerCount - 1;
-            pm.inputHandle = inputHandle;
-            Player p = playerGO.GetComponent<Player>();
-            p.hatMeshRenderer.material = materials[pm.playerNo];
-            targetGroup.AddMember(playerGO.transform, 1f, 2f);
+            SpawnPlayer();
         }
         StartCoroutine(Wait());
+    }
+
+    public void SpawnPlayer()
+    {
+        GameObject playerGO = Instantiate(playerPrefab);
+        playerGO.transform.position = children[playerCount++].position;
+        PlayerMovement pm = playerGO.GetComponent<PlayerMovement>();
+        pm.playerNo = playerCount - 1;
+        pm.inputHandle = inputHandle;
+        Player p = playerGO.GetComponent<Player>();
+        p.hatMeshRenderer.material = materials[pm.playerNo];
+        targetGroup.AddMember(playerGO.transform, 1f, 2f);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            SpawnPlayer();
+        }
     }
 
     public IEnumerator Wait()
