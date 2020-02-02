@@ -8,6 +8,8 @@ public class AttackManager : MonoBehaviour
     [SerializeField] private List<Attacker> _attackers;
     [SerializeField] private AttackData _data;
 
+    private int currentAttackCount;
+
     private void Awake()
     {
         StartCoroutine(DelayedAttack(_data.DelayBeforeFirstAttack));
@@ -19,6 +21,14 @@ public class AttackManager : MonoBehaviour
 
         if(firingArrow)
             delay /= 2;
+        else
+            currentAttackCount++;
+
+        if(currentAttackCount > _data.hitCountBeforeDiffIncrease)
+        {
+            delay -= _data.delayDecrease;
+            currentAttackCount = 0;
+        }
 
         yield return new WaitForSeconds(delay);
         _attackers[Random.Range(0, _attackers.Count)].Attack(firingArrow);
