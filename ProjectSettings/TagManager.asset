@@ -24,9 +24,9 @@ TagManager:
   - Weapon
   - EnemyProjectile
   - Container
-  - 
-  - 
-  - 
+  - FireArrow
+  - Player
+  - Bucket
   - 
   - 
   - 

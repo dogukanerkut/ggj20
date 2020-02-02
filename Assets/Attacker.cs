@@ -6,9 +6,11 @@ public class Attacker : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private Transform _target;
+    [SerializeField] private Transform _targetBallista;
     [SerializeField] private GameObject _ballistaPrefab;
     [SerializeField] private float _distanceFromWall;
     [SerializeField] private AutoProjectile _projectilePrefab;
+    [SerializeField] private AutoProjectile _fireArrowPrefab;
     [SerializeField] private float _initialAngle;
     private GameObject _instantiatedBallista;
 
@@ -24,13 +26,24 @@ public class Attacker : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Attack();
+            Attack(false);
+            Attack(true);
         }
     }
-    public void Attack()
+
+    public void Attack(bool fireArrow)
     {
-        AutoProjectile projectile = Instantiate(_projectilePrefab);
-        projectile.transform.position = _instantiatedBallista.transform.position;
-        projectile.Fire(_target, _initialAngle);
+        if(!fireArrow || _targetBallista == null)
+        {
+            AutoProjectile projectile = Instantiate(_projectilePrefab);
+            projectile.transform.position = _instantiatedBallista.transform.position;
+            projectile.Fire(_target, _initialAngle);
+        }
+        else
+        {
+            AutoProjectile projectile = Instantiate(_fireArrowPrefab);
+            projectile.transform.position = _instantiatedBallista.transform.position;
+            projectile.Fire(_targetBallista, _initialAngle * 2);
+        }
     }
 }

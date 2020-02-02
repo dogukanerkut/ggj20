@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6513117991330954030}
   - component: {fileID: 6513117991330954031}
   - component: {fileID: 7592088363588530783}
+  - component: {fileID: 8444772899945270123}
   m_Layer: 9
   m_Name: Bucket
   m_TagString: Item
@@ -125,3 +126,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemType: 1
+--- !u!114 &8444772899945270123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2973171080865505832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f1c26a85f713245a70f964adc432fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterSplash: {fileID: 924347149427569265, guid: ae3d40ca4091239419ee632abcda1abb,
+    type: 3}
+  willExplode: 0

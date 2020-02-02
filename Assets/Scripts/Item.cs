@@ -50,6 +50,13 @@ public class Item : MonoBehaviour
         rb.isKinematic = false;
         rb.AddForce(force * 100);
 
+        if(_itemType == ItemType.Bucket)
+            GetComponent<Bucket>().willExplode = true;
+    }
+
+    private void EnableCollider()
+    {
+
     }
 
     private void Update()
