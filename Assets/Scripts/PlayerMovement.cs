@@ -13,8 +13,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform _characterParent;
     public float rotationLerpSpeed;
     public InputHandle inputHandle;
-
     public int playerNo;
+
     private Rigidbody playerRB;
     private Quaternion lookRotation;
     private Vector3 _inputDir;
