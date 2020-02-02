@@ -11,7 +11,8 @@ public class WallHandler : MonoBehaviour
     [SerializeField] List<Container> _linkedContainers = new List<Container>();
     private MeshRenderer _renderer;
     private float _currentRepairAmount;
-    int _rimAmountId = Shader.PropertyToID("delta");
+    int _rimAmountId = Shader.PropertyToID("_delta");
+    int _targetColorId = Shader.PropertyToID("_RimColor");
     private void Awake()
     {
         _renderer = GetComponent<MeshRenderer>();
@@ -42,6 +43,9 @@ public class WallHandler : MonoBehaviour
             }
             _wallBreakHandler.Repair();
         }
+
+        RepairFX();
+
     }
     private bool HasResourceToRepair()
     {
@@ -54,8 +58,21 @@ public class WallHandler : MonoBehaviour
     }
     public void ShineBabyShine()
     {
-        _renderer.material.SetFloat(_rimAmountId, 0);
-        _renderer.material.DOFloat(1, _rimAmountId, 1);
+        _renderer.material.SetColor(_targetColorId, _data.DamageColor);
+        DOTween.Kill(_renderer.material, true);
+        _renderer.material.DOFloat(1, _rimAmountId, .75f).From(0).SetEase(Ease.InQuint);
+    }
+    public void RepairFX()
+    {
+        _renderer.material.SetColor(_targetColorId, _data.RepairColor);
+        DOTween.Kill(_renderer.material, true);
+        _renderer.material.DOFloat(1, _rimAmountId, .3f).From(0).SetEase(Ease.InQuint);
+    }
+    public void RestoreFX()
+    {
+        _renderer.material.SetColor(_targetColorId, _data.RestoreColor);
+        DOTween.Kill(_renderer.material, true);
+        _renderer.material.DOFloat(1, _rimAmountId, .3f).From(0).SetEase(Ease.InQuint);
     }
     private void OnDisable()
     {

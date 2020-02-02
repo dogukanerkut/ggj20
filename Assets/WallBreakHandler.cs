@@ -37,7 +37,7 @@ public class WallBreakHandler : MonoBehaviour
         EnableSubObject(_breakStages[_currentBreakIndex], false);
     }
 
-    private void EnableSubObject(Breakable breakable, bool isRepair = true)
+    private void EnableSubObject(Breakable breakable, bool isRepair = true, bool isRestored = false)
     {
         if (breakable.Object == null)
         {
@@ -57,12 +57,19 @@ public class WallBreakHandler : MonoBehaviour
                 if (breakable.Object != null)
                 {
                     breakable.Object.SetActive(true);
+                    var handler = breakable.Object.GetComponent<WallHandler>();
                     if (!isRepair)
                     {
-                        var handler = breakable.Object.GetComponent<WallHandler>();
                         if (handler != null)
                         {
                             handler.ShineBabyShine();
+                        }
+                    }
+                    if (isRestored)
+                    {
+                        if (handler != null)
+                        {
+                            handler.RestoreFX();
                         }
                     }
                 }
@@ -100,7 +107,7 @@ public class WallBreakHandler : MonoBehaviour
             return;
         }
         _currentBreakIndex--;
-        EnableSubObject(_breakStages[_currentBreakIndex]);
+        EnableSubObject(_breakStages[_currentBreakIndex], true, true);
     }
     private void Update()
     {
