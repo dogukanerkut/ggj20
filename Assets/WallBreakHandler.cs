@@ -73,11 +73,11 @@ public class WallBreakHandler : MonoBehaviour
                         }
                     }
                 }
-                if (breakable.InitialEffect != null)
+                if (breakable.InitialEffect != null && !isRestored)
                 {
                     breakable.InitialEffect.Play(true);
                 }
-                if (breakable.ContinousEffect != null)
+                if (breakable.ContinousEffect != null && !isRestored)
                 {
                     breakable.ContinousEffect.Play(true);
                 }
