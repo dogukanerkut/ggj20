@@ -4,10 +4,17 @@ using System.Collections;
 
 public class AutoProjectile : MonoBehaviour
 {
+    public bool lookTowardsVel;
+    private Rigidbody rb;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     public void Fire(Transform target, float initialAngle)
     {
-        var rigid = GetComponent<Rigidbody>();
+        var rigid = rb;
         Vector3 p = target.position;
 
         float gravity = Physics.gravity.magnitude;
@@ -30,10 +37,26 @@ public class AutoProjectile : MonoBehaviour
         rigid.velocity = finalVelocity;
         // rigid.AddForce(finalVelocity * rigid.mass, ForceMode.Impulse);
     }
+
+    private void Update()
+    {
+        if(lookTowardsVel)
+        {
+            transform.LookAt(rb.velocity + transform.position);
+            transform.rotation *= Quaternion.Euler(90, 0, 0);
+        }
+    }
+
     private void OnCollisionEnter(Collision other) {
         if (other.gameObject.CompareTag("Wall"))
         {
             other.transform.parent.GetComponent<WallBreakHandler>().ReceiveHit();
+            GetComponent<Collider>().enabled = false;
+            Destroy(gameObject);
+        }
+        else if(other.gameObject.CompareTag("Ballista"))
+        {
+            other.gameObject.GetComponent<Ballista>().Burn();
             GetComponent<Collider>().enabled = false;
             Destroy(gameObject);
         }

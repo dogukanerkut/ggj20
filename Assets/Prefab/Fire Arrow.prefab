@@ -11,7 +11,10 @@ GameObject:
   - component: {fileID: 4581051100483200694}
   - component: {fileID: 4812147927226621056}
   - component: {fileID: 1293841924413874297}
-  m_Layer: 0
+  - component: {fileID: -2970122326384801028}
+  - component: {fileID: -6995272045652238037}
+  - component: {fileID: 1481572559}
+  m_Layer: 14
   m_Name: Fire Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 704936953956553893}
-  m_LocalRotation: {x: -0, y: -0, z: 0.6738827, w: 0.7388384}
+  m_LocalRotation: {x: 0, y: 0, z: 0.6738834, w: 0.7388378}
   m_LocalPosition: {x: -1.772142, y: 1.3862478, z: 0}
   m_LocalScale: {x: 2, y: 1, z: 2}
   m_Children:
@@ -80,6 +83,48 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &-2970122326384801028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704936953956553893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a5462ef26fc4b549c3042e61790642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookTowardsVel: 1
+--- !u!135 &-6995272045652238037
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704936953956553893}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.14
+  m_Center: {x: -0.04288112, y: 0.4, z: 0.0007885285}
+--- !u!54 &1481572559
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704936953956553893}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &656545245634296522
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91,6 +136,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fire Arrow Tip
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702951445389691220, guid: 45d877477caeaa94d9c5b72d7d9d2403,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 8702951445389691222, guid: 45d877477caeaa94d9c5b72d7d9d2403,
         type: 3}

@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Ballista : MonoBehaviour
 {
-
     public GameObject arrow;
     public float arrowLoadDelay;
     public float arrowSpeed;
+    public float burnDuration;
+    public ParticleSystem firePS;
+    public ParticleSystem steamEffect;
+    private bool onFire;
+    private float burnTimer;
 
     public GameObject destructionEffect;
 
@@ -33,6 +37,12 @@ public class Ballista : MonoBehaviour
 
     private void Update()
     {
+        if(onFire)
+        {
+            burnTimer -= Time.deltaTime;
+            if(burnTimer < 0)
+                DestroyBallista();
+        }
         if (moveArrow)
         {
             newArrow.transform.position += newArrow.transform.up * arrowSpeed * Time.deltaTime;
@@ -47,11 +57,26 @@ public class Ballista : MonoBehaviour
         GetComponent<Container>().RemoveItem();
     }
 
-    public void DestroyBallista()
+    private void DestroyBallista()
     {
         if(gameObject.activeInHierarchy)
             Instantiate(destructionEffect, transform.position, Quaternion.identity);
         gameObject.SetActive(false);
-        
+    }
+
+    public void ExtnguishFire()
+    {
+        burnTimer = burnDuration;
+        steamEffect.Play();
+        firePS.Stop();
+        onFire = false;
+    }
+
+    public void Burn()
+    {
+        firePS.Play();
+        if(!onFire)
+            burnTimer = burnDuration;
+        onFire = true;
     }
 }
