@@ -13,7 +13,7 @@ public class Bucket : MonoBehaviour
         {
             Instantiate(waterSplash, transform.position, Quaternion.identity);
 
-            Collider[] cols = Physics.OverlapSphere(transform.position, 1.75f);
+            Collider[] cols = Physics.OverlapSphere(transform.position, 1.9f);
             foreach(Collider collider in cols)
             {
                 if(collider.CompareTag("Ballista"))
