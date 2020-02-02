@@ -20,6 +20,7 @@ public class Container : MonoBehaviour
             if (transform.CompareTag("Workshop"))
             {
                 var spawner = GetComponent<ObjectSpawner>();
+                GetComponent<BrazierEmberHandler>().Burn(spawner.cooldown);
                 StartCoroutine(WaitAndSpawn(spawner.cooldown));
                 spawner.DoSpawnTween();
             }

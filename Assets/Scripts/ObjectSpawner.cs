@@ -92,6 +92,6 @@ public class ObjectSpawner : MonoBehaviour
     public void DoSpawnTween()
     {
         DoTarget.localRotation = Quaternion.identity;
-        DoTarget.DOShakeRotation(cooldown, 20, 10, 90, false);
+        DoTarget.DOShakeRotation(cooldown, 10, 10, 90, false);
     }
 }

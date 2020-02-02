@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class Item : MonoBehaviour
@@ -14,10 +15,19 @@ public class Item : MonoBehaviour
     [SerializeField] private ItemType _itemType;
     public ItemType ItemType { get => _itemType; }
     private Quaternion _targetQuaternion;
+
+    private MeshRenderer _renderer;
+    private int _rimAmountId = Shader.PropertyToID("_delta");
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
+_renderer = GetComponent<MeshRenderer>();
+        if (ItemType == ItemType.Arrow)
+        {
+            _renderer.sharedMaterial.SetFloat(_rimAmountId, 1);
+            _renderer.sharedMaterial.DOFloat(0, _rimAmountId, 1.5f);
+        }
     }
 
     public void Pickup(Transform target)
