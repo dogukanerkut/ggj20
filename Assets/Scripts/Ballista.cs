@@ -67,7 +67,8 @@ public class Ballista : MonoBehaviour
     public void ExtnguishFire()
     {
         burnTimer = burnDuration;
-        steamEffect.Play();
+        if(onFire)
+            steamEffect.Play();
         firePS.Stop();
         onFire = false;
     }
