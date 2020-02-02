@@ -25,6 +25,8 @@ public class WallBreakHandler : MonoBehaviour
         Debug.Log(CurrentBreakPercentage);
         if (_currentBreakIndex == _breakStages.Count - 1)
         {
+            TimeControl.instance.SetTimeScale(.01f);
+            GameControl.instance.GameOver();
             Debug.Log("Game Over");
             EventManager.EventGameOver.Invoke();
         }
