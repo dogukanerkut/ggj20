@@ -34,14 +34,14 @@ public class WallBreakHandler : MonoBehaviour
         {
             EventManager.EventWallBreak.Invoke(this);
         }
-        EnableSubObject(_breakStages[_currentBreakIndex]);
+        EnableSubObject(_breakStages[_currentBreakIndex], false);
     }
 
-    private void EnableSubObject(Breakable breakable)
+    private void EnableSubObject(Breakable breakable, bool isRepair = true)
     {
         if (breakable.Object == null)
         {
-            _breakStages.ForEach(b => 
+            _breakStages.ForEach(b =>
             {
                 if (b.Object != null)
                 {
@@ -57,6 +57,14 @@ public class WallBreakHandler : MonoBehaviour
                 if (breakable.Object != null)
                 {
                     breakable.Object.SetActive(true);
+                    if (!isRepair)
+                    {
+                        var handler = breakable.Object.GetComponent<WallHandler>();
+                        if (handler != null)
+                        {
+                            handler.ShineBabyShine();
+                        }
+                    }
                 }
                 if (breakable.InitialEffect != null)
                 {
@@ -87,7 +95,7 @@ public class WallBreakHandler : MonoBehaviour
     }
     public void Repair()
     {
-        if (_currentBreakIndex -1 < 0)
+        if (_currentBreakIndex - 1 < 0)
         {
             return;
         }
