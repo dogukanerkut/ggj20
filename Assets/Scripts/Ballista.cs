@@ -10,6 +10,7 @@ public class Ballista : MonoBehaviour
     public float burnDuration;
     public ParticleSystem firePS;
     public ParticleSystem steamEffect;
+    public ParticleSystem muzzle;
     private bool onFire;
     private float burnTimer;
 
@@ -29,6 +30,7 @@ public class Ballista : MonoBehaviour
         newArrow = Instantiate(arrow, transform);
         arrow.SetActive(false);
         StartCoroutine(Destroy(newArrow));
+        muzzle.Play();
         moveArrow = true;
         EventManager.EventArrowFired.Invoke();
     }
