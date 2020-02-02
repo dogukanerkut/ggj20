@@ -58,11 +58,9 @@ public class Player : MonoBehaviour
     }
     public void Attack()
     {
-
-
         RaycastHit hit;
         Physics.SphereCast(transform.position - characterParent.forward, 1f, characterParent.forward, out hit,
-            2.5f, LayerMask.GetMask("Interactable"));
+            2.5f, LayerMask.GetMask("Interactable") + LayerMask.GetMask("Container"));
         if (hit.transform != null)
         {
             if (hit.transform.tag == "Spawner")
@@ -75,6 +73,10 @@ public class Player : MonoBehaviour
                 {
                     //hit is successfull, you can spawn particle fx here
                 }
+            }
+            if(hit.transform.tag == "Ballista")
+            {
+                hit.transform.GetComponent<Ballista>().AttempFire();
             }
         }
     }
