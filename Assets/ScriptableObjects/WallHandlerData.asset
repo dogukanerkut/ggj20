@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitsRequiredToRepair: 5
   DamageColor: {r: 1, g: 0.4405403, b: 0, a: 1}
-  RepairColor: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 0}
-  RestoreColor: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 0}
+  RepairColor: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 0}
+  RestoreColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
