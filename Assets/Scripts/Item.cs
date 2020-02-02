@@ -23,6 +23,7 @@ public class Item : MonoBehaviour
     public void Pickup(Transform target)
     {
         this.target = target;
+        _targetQuaternion = Quaternion.identity;
         col.enabled = false;
         rb.isKinematic = true;
     }
