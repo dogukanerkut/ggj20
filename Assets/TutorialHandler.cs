@@ -25,7 +25,7 @@ public class TutorialHandler : MonoBehaviour
             }
             return;
         }
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Joystick1Button0))
         {
 
             _animators[_currentIndex++].SetTrigger("TransitionOut");
