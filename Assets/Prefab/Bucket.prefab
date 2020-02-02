@@ -141,3 +141,6 @@ MonoBehaviour:
   waterSplash: {fileID: 924347149427569265, guid: ae3d40ca4091239419ee632abcda1abb,
     type: 3}
   willExplode: 0
+  mask:
+    serializedVersion: 2
+    m_Bits: 8192

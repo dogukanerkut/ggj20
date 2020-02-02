@@ -9,6 +9,6 @@ public class PlayerHolder : MonoBehaviour
     public void SetCanAttack()
     {
         _player.SetCanAttack(true);
-        Debug.Log("SetCanAttack");
+        //Debug.Log("SetCanAttack");
     }
 }
