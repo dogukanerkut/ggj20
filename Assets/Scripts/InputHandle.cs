@@ -10,11 +10,11 @@ public class InputHandle
             case 0:
                 return Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(1);
             case 1:
-                return Input.GetKeyDown(KeyCode.Joystick1Button1);
+                return Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.Joystick1Button2);
             case 2:
-                return Input.GetKeyDown(KeyCode.Joystick2Button1);
+                return Input.GetKeyDown(KeyCode.Joystick2Button1) || Input.GetKeyDown(KeyCode.Joystick2Button2);
             case 3:
-                return Input.GetKeyDown(KeyCode.Joystick3Button1);
+                return Input.GetKeyDown(KeyCode.Joystick3Button1) || Input.GetKeyDown(KeyCode.Joystick3Button2);
             default:
                 return false;
         }
