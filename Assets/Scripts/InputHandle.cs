@@ -8,7 +8,7 @@ public class InputHandle
         switch (playerNo)
         {
             case 0:
-                return Input.GetKeyDown(KeyCode.Z);
+                return Input.GetKeyDown(KeyCode.X);
             case 1:
                 return Input.GetKeyDown(KeyCode.Joystick1Button1);
             case 2:
