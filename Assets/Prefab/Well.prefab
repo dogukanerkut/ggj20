@@ -227,10 +227,14 @@ MonoBehaviour:
   upwardForceInterval: {x: 300, y: 500}
   sidewaysForceInterval: {x: -1, y: 1}
   hitPoints: 1
-  cooldown: 5
+  cooldown: 3
   randomRot: 0
   spawnCount: 1
   spawnVFX: {fileID: 3971440880969447257}
+  spawnerFX: {fileID: 0}
+  _hitFX: {fileID: 0}
+  ItemType: 0
+  DoTarget: {fileID: 0}
 --- !u!1001 &953280405
 PrefabInstance:
   m_ObjectHideFlags: 0
