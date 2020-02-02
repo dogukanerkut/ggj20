@@ -10,7 +10,7 @@ public class AttackManager : MonoBehaviour
 
     private int currentAttackCount;
 
-    private void Awake()
+    public void StartAttack()
     {
         StartCoroutine(DelayedAttack(_data.DelayBeforeFirstAttack));
     }

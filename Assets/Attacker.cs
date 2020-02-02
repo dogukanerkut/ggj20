@@ -24,11 +24,11 @@ public class Attacker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Attack(false);
-            Attack(true);
-        }
+        // if (Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     Attack(false);
+        //     Attack(true);
+        // }
     }
 
     public void Attack(bool fireArrow)
