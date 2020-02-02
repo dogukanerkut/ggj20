@@ -26,7 +26,7 @@ public class Container : MonoBehaviour
             }
             if (transform.CompareTag("Ballista"))
             {
-                GetComponent<Ballista>().DelayedFire();
+                //GetComponent<Ballista>().AttempFire();
             }
         }
     }
