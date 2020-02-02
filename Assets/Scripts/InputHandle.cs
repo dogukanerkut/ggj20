@@ -27,11 +27,11 @@ public class InputHandle
             case 0:
                 return Input.GetKeyDown(KeyCode.Z) || Input.GetMouseButtonDown(0);
             case 1:
-                return Input.GetKeyDown(KeyCode.Joystick1Button1);
+                return Input.GetKeyDown(KeyCode.Joystick1Button0);
             case 2:
-                return Input.GetKeyDown(KeyCode.Joystick2Button1);
+                return Input.GetKeyDown(KeyCode.Joystick2Button0);
             case 3:
-                return Input.GetKeyDown(KeyCode.Joystick3Button1);
+                return Input.GetKeyDown(KeyCode.Joystick3Button0);
             default:
                 return false;
         }
