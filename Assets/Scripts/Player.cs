@@ -63,11 +63,6 @@ public class Player : MonoBehaviour
             2.5f, LayerMask.GetMask("Interactable") + LayerMask.GetMask("Container"));
         if (hit.transform != null)
         {
-            Debug.Log(hit.transform.name);
-
-        }
-        if (hit.transform != null)
-        {
             if (hit.transform.tag == "Spawner")
             {
                 hit.transform.GetComponent<ObjectSpawner>().Hit();
