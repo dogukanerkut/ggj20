@@ -28,11 +28,9 @@ public class Ballista : MonoBehaviour
         yield return new WaitForSeconds(arrowLoadDelay);
         newArrow = Instantiate(arrow, transform);
         arrow.SetActive(false);
-        //Rigidbody newArrowRB = newArrow.GetComponent<Rigidbody>();
-        //newArrowRB.isKinematic = false;
-        //newArrowRB.velocity = newArrow.transform.up * 20f;
         StartCoroutine(Destroy(newArrow));
         moveArrow = true;
+        EventManager.EventArrowFired.Invoke();
     }
 
     private void Update()

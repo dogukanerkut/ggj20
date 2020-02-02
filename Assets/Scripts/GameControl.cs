@@ -22,6 +22,11 @@ public class GameControl : MonoBehaviour
         canvasAnim.SetBool("gameover", true);
     }
 
+    public void GameWin()
+    {
+        canvasAnim.SetBool("gamewin", true);
+    }
+
     public void ReloadGame()
     {
         SceneManager.LoadScene(0);
