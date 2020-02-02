@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6173083825911741520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8471799249263003592}
+  - component: {fileID: 1189306702200550744}
+  m_Layer: 0
+  m_Name: EscapePreventerCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8471799249263003592
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6173083825911741520}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.45, y: 3.62, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8027645505289659109}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1189306702200550744
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6173083825911741520}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5687353, y: 2.5697818, z: 7.7639074}
+  m_Center: {x: 0.21563238, y: 0.78491837, z: -0.000000019628319}
 --- !u!1 &6430213203121918198
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,7 +56,6 @@ GameObject:
   - component: {fileID: 1314184337050179795}
   - component: {fileID: 4683852302510580778}
   - component: {fileID: -9066929221626421675}
-  - component: {fileID: -4116574934602191612}
   - component: {fileID: 797046357651436213}
   - component: {fileID: 6321096832199871001}
   m_Layer: 0
@@ -32,7 +75,8 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 8471799249263003592}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -96,19 +140,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.5697818, y: 3.0503147, z: 7.764572}
   m_Center: {x: -0.20399688, y: 1.5251719, z: 0.0000007160531}
---- !u!65 &-4116574934602191612
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6430213203121918198}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.54873466, y: 1.8402205, z: 7.764572}
-  m_Center: {x: -1.2145202, y: 3.9697957, z: 0.00000071525574}
 --- !u!114 &797046357651436213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,3 +202,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data: {fileID: 11400000, guid: 752d14a6f45ff4bd5bd6a7c151fb6aa7, type: 2}
   _wallBreakHandler: {fileID: 0}
+  _linkedContainers: []
