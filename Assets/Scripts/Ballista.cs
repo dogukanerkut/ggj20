@@ -5,7 +5,6 @@ using UnityEngine;
 public class Ballista : MonoBehaviour
 {
     public GameObject arrow;
-    public float arrowLoadDelay;
     public float arrowSpeed;
     public float burnDuration;
     public ParticleSystem firePS;
@@ -19,14 +18,14 @@ public class Ballista : MonoBehaviour
     private bool moveArrow;
     private GameObject newArrow;
 
-    public void DelayedFire()
+    public void AttempFire()
     {
-        StartCoroutine(Fire());
+        if(arrow.activeInHierarchy)
+            Fire();
     }
 
-    public IEnumerator Fire()
+    public void Fire()
     {
-        yield return new WaitForSeconds(arrowLoadDelay);
         newArrow = Instantiate(arrow, transform);
         arrow.SetActive(false);
         StartCoroutine(Destroy(newArrow));
