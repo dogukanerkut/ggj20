@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DelayBeforeFirstAttack: 5
   AttackFrequency: 5
-  ChanceToBurnBallista: 0.35
+  ChanceToBurnBallista: 0.3
   hitCountBeforeDiffIncrease: 3
   delayDecrease: 0.5

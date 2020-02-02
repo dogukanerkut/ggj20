@@ -17,7 +17,7 @@ public class TutorialHandler : MonoBehaviour
     {
         if (_isTutorialFinished)
         {
-            if (Input.GetMouseButtonDown(0))
+            if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Joystick1Button0))
             {
                 gameObject.SetActive(false);
                 Time.timeScale = 1;
