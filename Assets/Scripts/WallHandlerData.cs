@@ -4,4 +4,7 @@ using UnityEngine;
 public class WallHandlerData : ScriptableObject
 {
     public int HitsRequiredToRepair;
+    public Color DamageColor;
+    public Color RepairColor;
+    public Color RestoreColor;
 }
