@@ -25,8 +25,8 @@ TagManager:
   - EnemyProjectile
   - Container
   - FireArrow
-  - 
-  - 
+  - Player
+  - Bucket
   - 
   - 
   - 
